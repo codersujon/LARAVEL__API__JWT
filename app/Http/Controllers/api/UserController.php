@@ -30,6 +30,13 @@ class UserController extends Controller
     }
 
     /**
+     * To Generate Refresh Token Value
+     */
+    public function refreshToken(){
+
+    }
+
+    /**
      * User Logout (GET)
      */
     public function logout(){
