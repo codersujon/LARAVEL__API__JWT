@@ -11,7 +11,14 @@
 </head>
 
 <body class="bg-light">
-    <h1 class="text-primary text-center py-5 my-5 display-2">APIs Development  <br>JWT (JSON Web Token) Authentication</h1>
+    <div class="container">
+        <div class="row vh-100 align-items-center">
+            <div class="col-12">
+                <h1 class="text-primary text-center display-2 shadow py-5">APIs Development  <br>JWT (JSON Web Token) Authentication</h1>
+            </div>
+        </div>
+    </div>
+    
 
     {{-- js --}}
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
