@@ -5,6 +5,7 @@ namespace App\Http\Controllers\api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Course;
+use App\Models\User;
 
 class CourseController extends Controller
 {
@@ -42,6 +43,22 @@ class CourseController extends Controller
      * List Course API by user id (GET)
      */
     public function listCourse(){
+        $userID = auth()->user()->id;
+        $courses = User::find($userID)->courses;
+
+        if(!empty($courses)){
+            return response()->json([
+                "status"=> true,
+                "message"=> "Courses Found",
+                "data"=>$courses
+            ]);
+        }
+
+         // Response
+         return response()->json([
+            "status"=> false,
+            "message"=> "No Course Found!"
+        ]);
 
     }
 
