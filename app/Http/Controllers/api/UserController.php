@@ -78,6 +78,15 @@ class UserController extends Controller
      * User Profile (GET)
      */
     public function profile(){
+        
+        $userData = auth()->user(); // give us valid user data which have token
+
+         // Response
+         return response()->json([
+            "status"=> true,
+            "message"=> "Profile Data",
+            "data"=>$userData
+        ]);
 
     }
 
