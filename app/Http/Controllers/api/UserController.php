@@ -94,14 +94,25 @@ class UserController extends Controller
      * To Generate Refresh Token Value
      */
     public function refreshToken(){
+        $newToken = auth()->refresh();
 
+        return response()->json([
+            "status" => true,
+            "message"=> "New Access Token",
+            "token"=>$newToken
+        ]);
     }
 
     /**
      * User Logout (GET)
      */
     public function logout(){
-        
+        auth()->logout();
+
+        return response()->json([
+            "status" => true,
+            "message"=> "User Logged Out Successfully!",
+        ]);
     }
 
 
