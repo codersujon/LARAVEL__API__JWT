@@ -13,6 +13,28 @@ class CourseController extends Controller
      */
     public function courseEnroll(Request $request){
 
+        // Validation
+        $request->validate([
+            "title" => "required",
+            "description" => "required",
+            "total_videos" => "required",
+        ]);
+
+        $userID = auth()->user()->id;
+
+        // Course Model
+        Course::create([
+            "user_id" => $userID,
+            "title" => $request->title,
+            "description" => $request->description,
+            "total_videos" => $request->total_videos,
+        ]);
+
+        // Response
+        return response()->json([
+            "status"=> true,
+            "message"=> "Course Saved Successfully!"
+        ]);
     }
 
 
